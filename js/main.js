@@ -23,6 +23,7 @@ const pictureBtn = document.querySelector('#picture-btn');
 
 
 // Event Clicker For Button
+// "+ resolve +" will get the resolve from the previous stage which should get the ID. When getting the resolve from the fetch it will console log the ID but does not do anything in the below example.
 
 pictureBtn.addEventListener("click", function(e){
   document.getElementById('image-cycle').src="https://picsum.photos" + resolve + "/200/300/";
@@ -57,6 +58,11 @@ form.addEventListener('submit', (e) =>{
 // Data Array 
 
 const idArray = []
+
+// Send picture
+
+
+// Any old code that I could reflect on: 
 
 // fetch(url + imgData)
   // https://picsum.photos/id/0/info - Information and ID link.
