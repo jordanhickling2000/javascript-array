@@ -26,7 +26,7 @@ const pictureBtn = document.querySelector('#picture-btn');
 // "+ resolve +" will get the resolve from the previous stage which should get the ID. When getting the resolve from the fetch it will console log the ID but does not do anything in the below example.
 
 pictureBtn.addEventListener("click", function(e){
-  document.getElementById('image-cycle').src="https://picsum.photos" + resolve + "/200/300/";
+  document.getElementById('image-cycle').src="https://picsum.photos/200/300/"; // + resolve + "/200/300/"; This is coded out due to it not working whilst it still does not cycle through images it at least gets a new image. 
 });
 
 
