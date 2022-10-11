@@ -5,6 +5,12 @@
 body {
     background-color: black;
     justify-content: center;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-size: 17px;
 }
 
 .content-container {
