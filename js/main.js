@@ -1,4 +1,4 @@
-const url = 'https://picsum.photos/300/300';
+const url = 'https://picsum.photos/200/300';
 const changeImage = document.querySelector('.images');
 let img = new Image(300, 300); //creates a new image at the size of 300x300
 changeImage.appendChild(img); //This should append the .images div to the new image that is created. The images class is the parent and its appending the child to the parent. 
