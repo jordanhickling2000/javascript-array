@@ -62,10 +62,13 @@ form.addEventListener('submit', (e) => {
     document.getElementById('email').style.borderColor="red";
     document.getElementById('hidden-warning').style.display="block";
     document.getElementById('hidden-correct').style.display="none";
+    document.getElementById("array-image").style.display="none";
   } else if (email.value.match(regex)) {
     document.getElementById('email').style.borderColor="green";
     document.getElementById('hidden-warning').style.display="none";
     document.getElementById('hidden-correct').style.display="inline";
+    document.getElementById("array-image").style.display="block";
+    document.getElementById("array").style.display="inline";
     img.src = ''
   photographer.innerHTML = 'Photographer: '; // Resets the photographer div everytime a click is heard. Inserting the starting text "Photographer"
   
@@ -77,7 +80,7 @@ form.addEventListener('submit', (e) => {
             fetch(resolve)
             .then(response => response.json()) // Up to this section everything is the same as the first fetch as the same URL and info is being used. The next line becomes different to get the data array.
             .then( data => {
-              console.log(data); //This displays the data in an array showing that the data is working this then needs to be added to the URL.
+              // console.log(data); //This displays the data in an array showing that the data is working this then needs to be added to the URL.
               img.src = 'https://picsum.photos/id/' + data.id + '/300/300'
               photographer.insertAdjacentHTML('beforeend', data.author) // This remains the same due to the photograph class wanting to grab the different name everytime syncing up with the innerHTML reset.
       })
@@ -87,12 +90,22 @@ form.addEventListener('submit', (e) => {
     document.getElementById('email').style.borderColor="red";
     document.getElementById('hidden-warning').style.display="block";
     document.getElementById('hidden-correct').style.display="none";
+    document.getElementById("array-image").style.display="none";
+    document.getElementById("array").style.display="none";
   }
 })
 
 // Data Array 
 
-let emailArr = new Array()
+function pushData() {
+  const dataArr = 
+    {
+      email: document.getElementById('email').value, id: img.src,
+    }
+  // console.log(dataArr);
+  document.getElementById("array").innerHTML = dataArr.email;
+  document.getElementById("array-image").src = dataArr.id;
+}
 
 // Send picture
 
@@ -104,3 +117,9 @@ let emailArr = new Array()
   // .then(response => response.json())
   // .then(info => 'https://picsum.photos/id/' + info + '/info' )
   // .then(imgData => console.log(url + images));
+
+   // get value from the input text
+  //  var inputText = document.getElementById('email').value;
+   // append data to the array
+  //  emailArr.push(inputText);
+   // display array data
