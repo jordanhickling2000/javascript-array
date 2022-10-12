@@ -66,6 +66,23 @@ form.addEventListener('submit', (e) => {
     document.getElementById('email').style.borderColor="green";
     document.getElementById('hidden-warning').style.display="none";
     document.getElementById('hidden-correct').style.display="inline";
+    img.src = ''
+  photographer.innerHTML = 'Photographer: '; // Resets the photographer div everytime a click is heard. Inserting the starting text "Photographer"
+  
+  let newLink = new Promise((resolve, reject) => {
+    fetch(url)
+        .then(response => response.headers.get('picsum-id'))
+        .then(info => 'https://picsum.photos/id/' + info + '/info' )
+        .then(resolve => {
+            fetch(resolve)
+            .then(response => response.json()) // Up to this section everything is the same as the first fetch as the same URL and info is being used. The next line becomes different to get the data array.
+            .then( data => {
+              console.log(data); //This displays the data in an array showing that the data is working this then needs to be added to the URL.
+              img.src = 'https://picsum.photos/id/' + data.id + '/300/300'
+              photographer.insertAdjacentHTML('beforeend', data.author) // This remains the same due to the photograph class wanting to grab the different name everytime syncing up with the innerHTML reset.
+      })
+    })
+  });
   } else {
     document.getElementById('email').style.borderColor="red";
     document.getElementById('hidden-warning').style.display="block";
@@ -73,12 +90,9 @@ form.addEventListener('submit', (e) => {
   }
 })
 
-
-
-
 // Data Array 
 
-// const idArray = []
+let emailArr = new Array()
 
 // Send picture
 
