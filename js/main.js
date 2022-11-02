@@ -93,19 +93,129 @@ form.addEventListener('submit', (e) => {
     document.getElementById("array-image").style.display="none";
     document.getElementById("array").style.display="none";
   }
+
+  // const myHaystack = 'This is my haystack!';
+  // const myNeedle = 'is my';
+
+  // findNeedle = (needle, haystack) => {
+  //   let needleLength = needle.length;
+  //   let haystackLength = haystack.length;
+
+  //   if(needleLength === 0) {
+  //     return 0;
+  //   }
+  //   for(i = 0; i < haystackLength; i++) {
+  //     if (haystack.substr(i, needleLength === needle)) {
+  //       return i;
+  //     }
+  //   }
+  //   return 0;
+  // }
+
+  // console.log(findNeedle(myNeedle, myHaystack));
 })
+
+const myHaystack = 'This is my haystack!';
+const myNeedle = 'is my';
+findNeedle = (needle, haystack) => {
+  let needleLength = needle.length;
+  let haystackLength = haystack.length;
+  if (needleLength === 0) 
+  return 0;
+for(i = 0; i < haystackLength; i++) {
+    if (haystack.substr(i, needleLength === needle)) 
+    return i;
+  }
+  
+  return 0;
+}
+console.log(findNeedle(myNeedle, myHaystack));
+
+// const myHaystack = 'This is my haystack!';
+// const myNeedle = 'is my';
+
+// findNeedle = (needle, haystack) => {
+//   let needleLength = needle.length;
+//   let haystackLength = haystack.length;
+
+//   if(needleLength === 0) {
+//     return 0;
+//   }
+//   for(i = 0; i < haystackLength; i++) {
+//     if (haystack.substr(i, needleLength === needle)) {
+//       return i;
+//     }
+//   }
+//   return 0;
+// }
+
+// console.log(findNeedle(myNeedle, myHaystack));
 
 // Data Array 
 
+// const emails = document.querySelector('#email'); 
+
+const id = img.src;
+
+let emailArr = []
+
+let imageArr = []
+
 function pushData() {
-  const dataArr = 
-    {
-      email: document.getElementById('email').value, id: img.src,
-    }
-  // console.log(dataArr);
-  document.getElementById("array").innerHTML = dataArr.email;
-  document.getElementById("array-image").src = dataArr.id;
+  if (email.value.match(regex)) {
+  emailArr.push(email.value);
+  // emailArr.push(img);
+  console.log(emailArr);
+  document.getElementById("array").innerHTML = emailArr
+  document.getElementById("array-image").src = img.src;
+  // console.log(imageArr);
+  }
 }
+
+// email.find(email.value)
+// emailArr.find(emailArr, email.value)
+// seeker.find(email, emailArr);
+
+
+// let findEmail = [emailArr];
+// findNeedle(emailArr);
+// console.log(findNeedle);
+
+// for (let i = 0; i < emailArr.length; i++) {
+//   console.log(emailArr[i].length);
+// }
+
+// Things to consider during this project:
+
+// Haystack for further email validation for example checking if the email already exists.
+
+// function findEmail(email) {
+//   for(i = 0; i < email.length; i++) {
+//     if(email === email) {
+//       return "You have already used this email" + i
+//     }
+//   }
+// }
+// put an image array with the email in the email array so that it can be converted to a string for other details
+// Photographer tag could all be together
+// Debug the reason why title comes up twice when rapidly clicking new image
+
+
+
+
+
+
+
+
+// function pushData(email) {
+//   const dataArr = 
+//     {
+//       email: document.getElementById('email').value, id: img.src,
+//     }
+//   // console.log(dataArr);
+//   document.getElementById("array").innerHTML = dataArr.email;
+//   document.getElementById("array-image").src = dataArr.id;
+// }
 
 // Send picture
 
