@@ -154,23 +154,44 @@ console.log(findNeedle(myNeedle, myHaystack));
 // Data Array 
 
 // const emails = document.querySelector('#email'); 
+// const submit = document.querySelector('.submit-btn');
+
 
 const id = img.src;
 
-let emailArr = []
-
-let imageArr = []
+let emailArr = [];
+let imageArr = [];
 
 function pushData() {
   if (email.value.match(regex)) {
-  emailArr.push(email.value);
-  // emailArr.push(img);
-  console.log(emailArr);
-  document.getElementById("array").innerHTML = emailArr
-  document.getElementById("array-image").src = img.src;
-  // console.log(imageArr);
+    for(var i = 0; i < 1; i++) {
+      var h = emailArr.push(email.value);
+      var s = emailArr.push(img.src);
+      emailArr[i] = [h, s];
+    }
+    // for (var i = 0; i < 1; i++){
+    //   for(var j = 0; j < 1; j++) {
+    //     // emailArr[i][j] = s[emailArr.push(email.value)]
+    //   }
+    }
+    for (var i = 0; i < 2; i++) {
+      for (var j = 0; j < 2; j++)  
+      {
+        console.log(emailArr);
+        document.getElementById("array").innerHTML = emailArr;
+        document.getElementById("array-image").src = img.src;
+    // console.log(emailArr);
+    // document.getElementById("array").innerHTML = emailArr;
+    // document.getElementById("array-image").src = img.src;
+    // console.log(imageArr);
+    }
   }
 }
+
+// for (var i=0; i<arr.length; i++){
+//   html += "<p>"+arr[i][0]+"<p>"
+//   html += "<img src="+arr[i][1]+">"
+// }
 
 // email.find(email.value)
 // emailArr.find(emailArr, email.value)
