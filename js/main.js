@@ -50,7 +50,7 @@ pictureBtn.addEventListener("click", () => {
 
 // Email
 
-const regex = /(^(?!.*__.*)[a-z0-9]{4,253}(_?)[a-z0-9]+(?:\.[a-z0-9!#$%&*+\/=?^`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9]*[a-z0-9])?$)/;
+const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const email = document.querySelector('#email'); 
 const submitBtn = document.getElementById('#submit-btn')
 
@@ -162,31 +162,41 @@ const id = img.src;
 let emailArr = [];
 let imageArr = [];
 
+let container = document.querySelector('.flex-container');
+
 function pushData() {
   if (email.value.match(regex)) {
-    for(var i = 0; i < 1; i++) {
-      var h = emailArr.push(email.value);
-      var s = emailArr.push(img.src);
-      emailArr[i] = [h, s];
+    for (var i = 0; i < emailArr.length; i++) {
+      container.children[i].insertAdjacentHTML('beforeend', 
+      `<div class="image-and-email">
+      <p id="array">` + emailArr[i][0] + `</p>
+      <img id="array-image" src="` + emailArr[i][1] + `">
+      </div>`
+      )
     }
+  }
+    emailArr.push([email.value, img.src])
+    console.log(emailArr);
+  }
+
+
+
+    // var h = emailArr.push(email.value);
+    //   var s = emailArr.push(img.src);
+    //   emailArr[i] = [h][s];
+    //   console.log(emailArr);
+    //   document.getElementById("array").innerHTML = emailArr;
+    //   document.getElementById("array-image").src = img.src;
+
+
     // for (var i = 0; i < 1; i++){
     //   for(var j = 0; j < 1; j++) {
     //     // emailArr[i][j] = s[emailArr.push(email.value)]
     //   }
-    }
-    for (var i = 0; i < 2; i++) {
-      for (var j = 0; j < 2; j++)  
-      {
-        console.log(emailArr);
-        document.getElementById("array").innerHTML = emailArr;
-        document.getElementById("array-image").src = img.src;
     // console.log(emailArr);
     // document.getElementById("array").innerHTML = emailArr;
     // document.getElementById("array-image").src = img.src;
     // console.log(imageArr);
-    }
-  }
-}
 
 // for (var i=0; i<arr.length; i++){
 //   html += "<p>"+arr[i][0]+"<p>"
