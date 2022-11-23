@@ -93,91 +93,54 @@ form.addEventListener('submit', (e) => {
     document.getElementById("array-image").style.display="none";
     document.getElementById("array").style.display="none";
   }
-
-  // const myHaystack = 'This is my haystack!';
-  // const myNeedle = 'is my';
-
-  // findNeedle = (needle, haystack) => {
-  //   let needleLength = needle.length;
-  //   let haystackLength = haystack.length;
-
-  //   if(needleLength === 0) {
-  //     return 0;
-  //   }
-  //   for(i = 0; i < haystackLength; i++) {
-  //     if (haystack.substr(i, needleLength === needle)) {
-  //       return i;
-  //     }
-  //   }
-  //   return 0;
-  // }
-
-  // console.log(findNeedle(myNeedle, myHaystack));
 })
-
-const myHaystack = 'This is my haystack!';
-const myNeedle = 'is my';
-findNeedle = (needle, haystack) => {
-  let needleLength = needle.length;
-  let haystackLength = haystack.length;
-  if (needleLength === 0) 
-  return 0;
-for(i = 0; i < haystackLength; i++) {
-    if (haystack.substr(i, needleLength === needle)) 
-    return i;
-  }
-  
-  return 0;
-}
-console.log(findNeedle(myNeedle, myHaystack));
-
-// const myHaystack = 'This is my haystack!';
-// const myNeedle = 'is my';
-
-// findNeedle = (needle, haystack) => {
-//   let needleLength = needle.length;
-//   let haystackLength = haystack.length;
-
-//   if(needleLength === 0) {
-//     return 0;
-//   }
-//   for(i = 0; i < haystackLength; i++) {
-//     if (haystack.substr(i, needleLength === needle)) {
-//       return i;
-//     }
-//   }
-//   return 0;
-// }
-
-// console.log(findNeedle(myNeedle, myHaystack));
-
-// Data Array 
-
-// const emails = document.querySelector('#email'); 
-// const submit = document.querySelector('.submit-btn');
 
 
 const id = img.src;
 
 let emailArr = [];
 let imageArr = [];
+// let firstEmail = emailArr[i][0];
 
-let container = document.querySelector('.flex-container');
+let container = document.querySelector('.image-and-email-flex');
 
 function pushData() {
   if (email.value.match(regex)) {
-    for (var i = 0; i < emailArr.length; i++) {
+    if(!Array.isArray(emailArr) || !emailArr.length) {
+      emailArr.push([email.value, img.src])
+      container.children[0].insertAdjacentHTML('beforeend', 
+      `<div class="image-and-email">
+      <p id="array">` + emailArr[0][0] + `</p>
+      <img id="array-image" src="` + emailArr[0][1] + `">
+      </div>`)
+      container.insertAdjacentHTML('beforeend', 
+      `<div class="image-and-email">
+      </div>`)
+    }
+      for (var i = 0; i < emailArr.length; i++) {
+        if(email.value === emailArr[i][0]) {
+        emailArr[i].push([img.src])
+        container.children[i].insertAdjacentHTML('beforeend',
+        `<img id="array-image" src="` + emailArr[i][1] + `">`)
+        console.log("for")
+          break;
+      } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) {
+      emailArr.push([email.value, img.src])
       container.children[i].insertAdjacentHTML('beforeend', 
       `<div class="image-and-email">
       <p id="array">` + emailArr[i][0] + `</p>
       <img id="array-image" src="` + emailArr[i][1] + `">
-      </div>`
-      )
+      </div>`)
+      console.log("elseif")
+      container.insertAdjacentHTML('beforeend', 
+      `<div class="image-and-email">
+      </div>`)
+      }
     }
-  }
-    emailArr.push([email.value, img.src])
     console.log(emailArr);
   }
+// }
+}
 
 
 

@@ -98,7 +98,7 @@ label {
 }
 
 
-.flex-container {
+.image-and-email-flex {
     display: flex;  /* display: block; has some promising features. */
     gap: 1%;
     /* flex-direction: column; */
