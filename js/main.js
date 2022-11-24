@@ -67,8 +67,6 @@ form.addEventListener('submit', (e) => {
     document.getElementById('email').style.borderColor="green";
     document.getElementById('hidden-warning').style.display="none";
     document.getElementById('hidden-correct').style.display="inline";
-    document.getElementById("array-image").style.display="block";
-    document.getElementById("array").style.display="inline";
     img.src = ''
   photographer.innerHTML = 'Photographer: '; // Resets the photographer div everytime a click is heard. Inserting the starting text "Photographer"
   
@@ -90,8 +88,6 @@ form.addEventListener('submit', (e) => {
     document.getElementById('email').style.borderColor="red";
     document.getElementById('hidden-warning').style.display="block";
     document.getElementById('hidden-correct').style.display="none";
-    document.getElementById("array-image").style.display="none";
-    document.getElementById("array").style.display="none";
   }
 })
 
@@ -162,16 +158,14 @@ function pushData() {
         emailArr[i].push([img.src])
         container.children[i].insertAdjacentHTML('beforeend',
         `<img id="array-image" src="` + emailArr[i][emailArr[i].length -1] + `">`)
-        console.log("for")
+        // console.log("for")
           break;
       } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) {
       emailArr.push([email.value, img.src])
       container.children[i+1].insertAdjacentHTML('beforeend', 
-      `<div class="image-and-email">
-      <p id="array">` + emailArr[i+1][0] + `</p>
-      <img id="array-image" src="` + emailArr[i+1][1] + `">
-      </div>`)
-      console.log("elseif")
+      `<p id="array">` + emailArr[i+1][0] + `</p>
+      <img id="array-image" src="` + emailArr[i+1][1] + `">`)
+      // console.log("elseif")
       container.insertAdjacentHTML('beforeend', 
       `<div class="image-and-email">
       </div>`)
@@ -181,16 +175,14 @@ function pushData() {
     if(!Array.isArray(emailArr) || !emailArr.length) {
       emailArr.push([email.value, img.src])
       container.children[0].insertAdjacentHTML('beforeend', 
-      `<div class="image-and-email">
-      <p id="array">` + emailArr[0][0] + `</p>
-      <img id="array-image" src="` + emailArr[0][1] + `">
-      </div>`)
+      `<p id="array">` + emailArr[0][0] + `</p>
+      <img id="array-image" src="` + emailArr[0][1] + `">`)
       container.insertAdjacentHTML('beforeend', 
       `<div class="image-and-email">
       </div>`)
     }
-    console.log(emailArr);
-  }
+    // console.log(emailArr);
+}
 }
 
     // var h = emailArr.push(email.value);
