@@ -50,7 +50,7 @@ pictureBtn.addEventListener("click", () => {
 
 // Email
 
-const regex = /(^(?!.*__.*)[a-z0-9]{4,253}(_?)[a-z0-9]+(?:\.[a-z0-9!#$%&*+\/=?^`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9]*[a-z0-9])?$)/;
+const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const email = document.querySelector('#email'); 
 const submitBtn = document.getElementById('#submit-btn')
 
@@ -67,8 +67,6 @@ form.addEventListener('submit', (e) => {
     document.getElementById('email').style.borderColor="green";
     document.getElementById('hidden-warning').style.display="none";
     document.getElementById('hidden-correct').style.display="inline";
-    document.getElementById("array-image").style.display="block";
-    document.getElementById("array").style.display="inline";
     img.src = ''
   photographer.innerHTML = 'Photographer: '; // Resets the photographer div everytime a click is heard. Inserting the starting text "Photographer"
   
@@ -90,87 +88,124 @@ form.addEventListener('submit', (e) => {
     document.getElementById('email').style.borderColor="red";
     document.getElementById('hidden-warning').style.display="block";
     document.getElementById('hidden-correct').style.display="none";
-    document.getElementById("array-image").style.display="none";
-    document.getElementById("array").style.display="none";
   }
-
-  // const myHaystack = 'This is my haystack!';
-  // const myNeedle = 'is my';
-
-  // findNeedle = (needle, haystack) => {
-  //   let needleLength = needle.length;
-  //   let haystackLength = haystack.length;
-
-  //   if(needleLength === 0) {
-  //     return 0;
-  //   }
-  //   for(i = 0; i < haystackLength; i++) {
-  //     if (haystack.substr(i, needleLength === needle)) {
-  //       return i;
-  //     }
-  //   }
-  //   return 0;
-  // }
-
-  // console.log(findNeedle(myNeedle, myHaystack));
 })
 
-const myHaystack = 'This is my haystack!';
-const myNeedle = 'is my';
-findNeedle = (needle, haystack) => {
-  let needleLength = needle.length;
-  let haystackLength = haystack.length;
-  if (needleLength === 0) 
-  return 0;
-for(i = 0; i < haystackLength; i++) {
-    if (haystack.substr(i, needleLength === needle)) 
-    return i;
-  }
-  
-  return 0;
-}
-console.log(findNeedle(myNeedle, myHaystack));
 
-// const myHaystack = 'This is my haystack!';
-// const myNeedle = 'is my';
+// const id = img.src;
 
-// findNeedle = (needle, haystack) => {
-//   let needleLength = needle.length;
-//   let haystackLength = haystack.length;
+// let emailArr = [];
+// let imageArr = [];
+// // let firstEmail = emailArr[i][0];
 
-//   if(needleLength === 0) {
-//     return 0;
-//   }
-//   for(i = 0; i < haystackLength; i++) {
-//     if (haystack.substr(i, needleLength === needle)) {
-//       return i;
+// let container = document.querySelector('.image-and-email-flex');
+
+// function pushData() {
+//   if (email.value.match(regex)) {
+//     if(!Array.isArray(emailArr) || !emailArr.length) {
+//       emailArr.push([email.value, img.src])
+//       container.children[0].insertAdjacentHTML('beforeend', 
+//       `<div class="image-and-email">
+//       <p id="array">` + emailArr[0][0] + `</p>
+//       <img id="array-image" src="` + emailArr[0][1] + `">
+//       </div>`)
+//       container.insertAdjacentHTML('beforeend', 
+//       `<div class="image-and-email">
+//       </div>`)
 //     }
+//       for (var i = 0; i < emailArr.length; i++) {
+//         if(email.value === emailArr[i][0]) {
+//         emailArr[i].push([img.src])
+//         container.children[i].insertAdjacentHTML('beforeend',
+//         `<img id="array-image" src="` + emailArr[i][2] + `">`)
+//         console.log("for")
+//           break;
+//       } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) {
+//       emailArr.push([email.value, img.src])
+//       container.children[i].insertAdjacentHTML('beforeend', 
+//       `<div class="image-and-email">
+//       <p id="array">` + emailArr[i][0] + `</p>
+//       <img id="array-image" src="` + emailArr[i][1] + `">
+//       </div>`)
+//       console.log("elseif")
+//       container.insertAdjacentHTML('beforeend', 
+//       `<div class="image-and-email">
+//       </div>`)
+//       }
+//     }
+//     console.log(emailArr);
 //   }
-//   return 0;
+// // }
 // }
 
-// console.log(findNeedle(myNeedle, myHaystack));
 
-// Data Array 
 
-// const emails = document.querySelector('#email'); 
+
+
 
 const id = img.src;
 
-let emailArr = []
+let emailArr = [];
+let imageArr = [];
+// let firstEmail = emailArr[i][0];
 
-let imageArr = []
+let container = document.querySelector('.image-and-email-flex');
 
 function pushData() {
   if (email.value.match(regex)) {
-  emailArr.push(email.value);
-  // emailArr.push(img);
-  console.log(emailArr);
-  document.getElementById("array").innerHTML = emailArr
-  document.getElementById("array-image").src = img.src;
-  // console.log(imageArr);
-  }
+      for (var i = 0; i < emailArr.length; i++) {
+        if(email.value === emailArr[i][0]) {
+        emailArr[i].push([img.src])
+        container.children[i].insertAdjacentHTML('beforeend',
+        `<img id="array-image" src="` + emailArr[i][emailArr[i].length -1] + `">`)
+        // console.log("for")
+          break;
+      } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) {
+      emailArr.push([email.value, img.src])
+      container.children[i+1].insertAdjacentHTML('beforeend', 
+      `<p id="array">` + emailArr[i+1][0] + `</p>
+      <img id="array-image" src="` + emailArr[i+1][1] + `">`)
+      // console.log("elseif")
+      container.insertAdjacentHTML('beforeend', 
+      `<div class="image-and-email">
+      </div>`)
+      break;
+      }
+    }
+    if(!Array.isArray(emailArr) || !emailArr.length) {
+      emailArr.push([email.value, img.src])
+      container.children[0].insertAdjacentHTML('beforeend', 
+      `<p id="array">` + emailArr[0][0] + `</p>
+      <img id="array-image" src="` + emailArr[0][1] + `">`)
+      container.insertAdjacentHTML('beforeend', 
+      `<div class="image-and-email">
+      </div>`)
+    }
+    // console.log(emailArr);
 }
+}
+
+    // var h = emailArr.push(email.value);
+    //   var s = emailArr.push(img.src);
+    //   emailArr[i] = [h][s];
+    //   console.log(emailArr);
+    //   document.getElementById("array").innerHTML = emailArr;
+    //   document.getElementById("array-image").src = img.src;
+
+
+    // for (var i = 0; i < 1; i++){
+    //   for(var j = 0; j < 1; j++) {
+    //     // emailArr[i][j] = s[emailArr.push(email.value)]
+    //   }
+    // console.log(emailArr);
+    // document.getElementById("array").innerHTML = emailArr;
+    // document.getElementById("array-image").src = img.src;
+    // console.log(imageArr);
+
+// for (var i=0; i<arr.length; i++){
+//   html += "<p>"+arr[i][0]+"<p>"
+//   html += "<img src="+arr[i][1]+">"
+// }
 
 // email.find(email.value)
 // emailArr.find(emailArr, email.value)
