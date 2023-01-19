@@ -131,6 +131,13 @@ function pushData() {
 }
 
 
+
+
+
+// NEXT ADD FUNCTIONALITY OF DELETING, SCROLLING (IMAGE FIXED SECTION OR SCROLL ON ARRAY SECTION),
+//  After an image is assigned to an email, keep the same image present to allow the user to assign it to an additional email
+
+
     // var h = emailArr.push(email.value);
     //   var s = emailArr.push(img.src);
     //   emailArr[i] = [h][s];
