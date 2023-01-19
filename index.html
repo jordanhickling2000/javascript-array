@@ -9,34 +9,36 @@
         </head>
     <body>
         <div class="content-container">
-            <div class="heading">
-                <h1>Image Sender</h1>
-                <p>Any of the following images catch your eye? Enter your Email on the one you like and get it emailed to you!</p>
-            </div>
-            <div class="image-container">
-                <div class="images">
-
-                </div> <!-- This is an empty div tag because using the append child within JavaScript allows you to create an image through the DOM I was using an img tag however this didnt work and I tried the DOM technique.
-                        if theres any issues in the future then I will revist this. However without this append tag the array was being displayed but the image was not changing.-->
-                    <p class="photographer">Photographer: </p>
-                <div class="new-image-button">
-                    <button id="picture-btn">New Image</button>
+                <div class="heading">
+                    <h1>Image Sender</h1>
+                    <p>Any of the following images catch your eye? Enter your Email on the one you like and get it emailed to you!</p>
                 </div>
-                <div class="form">
-                    <form>
-                        <label for="email">Enter an Email address: </label>
-                        <input type="email" id="email" name="email" value="">
-                        <span id="hidden-correct"><i class="correct fa-solid fa-circle-check"></i></span>
-                        <p id="hidden-warning"><i class="exclamation fa-solid fa-circle-exclamation"></i>Please put in a valid email!</p>
-                        <div> 
-                            <button id="submit-btn" type="submit" value="register" onclick="pushData()">Submit</button>
-                        </div>
-                    </form>
+            <div class="image-handler-container">
+                <div class="image-container">
+                    <div class="images">
+
+                    </div> <!-- This is an empty div tag because using the append child within JavaScript allows you to create an image through the DOM I was using an img tag however this didnt work and I tried the DOM technique.
+                            if theres any issues in the future then I will revist this. However without this append tag the array was being displayed but the image was not changing.-->
+                        <p class="photographer">Photographer: </p>    
+                    <div class="new-image-button">
+                        <button id="picture-btn">New Image</button>
+                    </div>
+                    <div class="form">
+                        <form>
+                            <label for="email">Enter an Email address: </label>
+                            <input type="email" id="email" name="email" value="">
+                            <span id="hidden-correct"><i class="correct fa-solid fa-circle-check"></i></span>
+                            <p id="hidden-warning"><i class="exclamation fa-solid fa-circle-exclamation"></i>Please put in a valid email!</p>
+                            <div> 
+                                <button id="submit-btn" type="submit" value="register" onclick="pushData()">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="image-and-email-flex">
                 <div id="image-and-email">
-                    <p id="empty-text">EMPTY ARRAY!</p>
+                    <p id="empty-text">The array is empty!</p>
                 </div>
             </div>
         </div>

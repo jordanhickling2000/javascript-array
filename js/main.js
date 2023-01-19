@@ -5,8 +5,8 @@ changeImage.appendChild(img); //This should append the .images div to the new im
 const photographer = document.querySelector('.photographer');
 const pictureBtn = document.querySelector('#picture-btn');
 
-  // Fetches the variable URL: Picsum photos link
-  fetch(url)
+// Fetches the variable URL: Picsum photos link
+fetch(url)
   //Response to get the piscum ID of the photo
   .then(response => response.headers.get('picsum-id'))
   .then(info => 'https://picsum.photos/id/' + info + '/info' )
@@ -101,40 +101,33 @@ let container = document.querySelector('.image-and-email-flex');
 
 function pushData() {
   if (email.value.match(regex)) {
-    document.getElementsByClassName('')
-    // document.getElementById('image-and-email').style.display="inline"; // creates single one if email matches Regex
-      for (var i = 0; i < emailArr.length; i++) {
-        if(email.value === emailArr[i][0]) {
-        emailArr[i].push([img.src])
+    for (var i = 0; i < emailArr.length; i++) {
+      if (email.value === emailArr[i][0]) {
+        emailArr[i].push([img.src]);
         container.children[i].insertAdjacentHTML('beforeend',
-        `<img id="array-image" src="` + emailArr[i][emailArr[i].length -1] + `">`)
-        // console.log("for")
-          break;
+        `<img id="array-image" src="` + emailArr[i][emailArr[i].length -1] + `">`);
+        break;
       } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) {
-      emailArr.push([email.value, img.src])
-      container.children[i+1].insertAdjacentHTML('beforeend', 
-      `<p id="array-p">` + emailArr[i+1][0] + `</p>
-      <img id="array-image" src="` + emailArr[i+1][1] + `">`)
-      // console.log("elseif")
-      // document.getElementById('image-and-email').style.display="inline";
-      container.insertAdjacentHTML('beforeend', 
-      `<div id="image-and-email">
-      </div>`)
-      break;
+        emailArr.push([email.value, img.src]);
+        container.children[i+1].insertAdjacentHTML('beforeend', 
+        `<p id="array-p">` + emailArr[i+1][0] + `</p>
+        <img id="array-image" src="` + emailArr[i+1][1] + `">`);
+        container.insertAdjacentHTML('beforeend', 
+        `<div id="image-and-email">
+        </div>`);
+        break;
       }
     }
     if(!Array.isArray(emailArr) || !emailArr.length) {
-      // document.getElementById('image-and-email').style.display="inline";
-      emailArr.push([email.value, img.src])
+      emailArr.push([email.value, img.src]);
       container.children[0].insertAdjacentHTML('beforeend', 
       `<p id="array-p">` + emailArr[0][0] + `</p>
-      <img id="array-image" src="` + emailArr[0][1] + `">`)
+      <img id="array-image" src="` + emailArr[0][1] + `">`);
       container.insertAdjacentHTML('beforeend', 
       `<div id="image-and-email">
-      </div>`)
+      </div>`);
     }
-    // console.log(emailArr);
-}
+  }
 }
 
 
