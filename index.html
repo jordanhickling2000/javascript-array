@@ -11,7 +11,7 @@
         <div class="content-container">
                 <div class="heading">
                     <h1>Image Sender</h1>
-                    <p>Any of the following images catch your eye? Enter your Email on the one you like and get it emailed to you!</p>
+                    <p id="header-text">Any of the following images catch your eye? Enter your Email on the one you like and get it emailed to you!</p>
                 </div>
             <div class="lower-content-container">
                 <div class="image-handler-container">
@@ -27,9 +27,12 @@
                         <div class="form">
                             <form>
                                 <label for="email">Enter an Email address: </label>
-                                <input type="email" id="email" name="email" value="">
-                                <span id="hidden-correct"><i class="correct fa-solid fa-circle-check"></i></span>
+                                <div class="wrapper">
+                                    <input type="email" id="email" name="email" value="">
+                                    <span id="hidden-correct"><i class="correct fa-solid fa-circle-check"></i></span>
+                                </div>
                                 <p id="hidden-warning"><i class="exclamation fa-solid fa-circle-exclamation"></i>Please put in a valid email!</p>
+                                <p id="duplicate-image-warning"><i class="exclamation fa-solid fa-circle-exclamation"></i>Cannot have a duplicate image!</p>
                                 <div> 
                                     <button id="submit-btn" type="submit" value="register" onclick="pushData()">Submit</button>
                                 </div>
@@ -44,6 +47,8 @@
                 </div>
             </div>
         </div>
+
+        
         <script src="https://kit.fontawesome.com/fc2f3a0d11.js" crossorigin="anonymous"></script>
         <script src="js/main.js"></script>
     </body>
