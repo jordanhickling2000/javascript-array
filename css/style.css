@@ -114,7 +114,7 @@ label {
     font-size: 18px;
 }
 
-#hidden-warning, .exclamation {
+#hidden-warning, .exclamation, #duplicate-image-warning {
     display: none;
     color: #981616;
     font-size: 15px;

@@ -24,6 +24,7 @@ fetch(url)
   .catch(error => console.log(error))
 
 pictureBtn.addEventListener("click", () => {
+  duplicationWarning.style.display='none';
   // Every click makes the SRC blank so that the URL can be placed through the new promise.
   img.src = ''
   photographer.innerHTML = 'Photographer: '; // Resets the photographer div everytime a click is heard. Inserting the starting text "Photographer"
@@ -99,20 +100,22 @@ let imageArr = [];
 // let firstEmail = emailArr[i][0];
 
 let container = document.querySelector('.image-and-email-flex');
+const duplicationWarning = document.getElementById('duplicate-image-warning')
 
 function pushData() {
   if (email.value.match(regex)) {
     for (var i = 0; i < emailArr.length; i++) {
-      if (email.value === emailArr[i][0]) {
+      if(emailArr[i][emailArr[i].length -1][0] === img.src){ // checks the image on the emails stops duplication  
+        duplicationWarning.style.display='inline';
+        console.log('found');
+        break;
+      } else if (email.value === emailArr[i][0]) { // pushes the img.src into an existing email
         emailArr[i].push([img.src]);
         container.children[i].insertAdjacentHTML('beforeend',
         `<img id="array-image" src="` + emailArr[i][emailArr[i].length -1] + `">`);
         console.log(emailArr[i][emailArr[i].length -1])
         break;
-      } else if(emailArr[i][emailArr[i].length -1] === emailArr[i][emailArr[i].length -1]){
-        console.log('found')
-        break;
-      } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) {
+      } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) { // pushes the img.src into an existing email
         emailArr.push([email.value, img.src]);
         container.children[i+1].insertAdjacentHTML('beforeend', 
         `<p id="array-p">` + emailArr[i+1][0] + `</p>
@@ -120,6 +123,11 @@ function pushData() {
         container.insertAdjacentHTML('beforeend', 
         `<div id="image-and-email">
         </div>`);
+        console.log(emailArr[i+1][1])
+        break;
+      }  else if (emailArr[i+1][1] === img.src) { // stops the new emails from duplicating first item.
+        duplicationWarning.style.display='inline';
+        console.log('found');
         break;
       } 
     }
@@ -131,7 +139,8 @@ function pushData() {
       container.insertAdjacentHTML('beforeend', 
       `<div id="image-and-email">
       </div>`);
-    }
+      console.log(emailArr[0][1])  
+    } 
   }
 }
 
