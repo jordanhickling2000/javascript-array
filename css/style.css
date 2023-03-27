@@ -28,16 +28,15 @@ h1 {
 }
 
 .heading {
-    border: 2px solid black;
+    border-radius: 5px;
     margin-bottom: 20px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 10px;
     background: #C7FB86;
+    text-align: center;
 }
 
 .content-container {
     padding: 10px;
-    text-align: center;
     background-color: #00E6F4;
     height: 100vh;
 }
@@ -46,10 +45,11 @@ h1 {
     /* position: fixed; */
     float: left;
     background-color: #C7FB86;
-    padding: 10px;
-    border: 2px black solid;
+    padding: 50px;
     width: 400px;
     margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .lower-content-container {
@@ -64,54 +64,35 @@ h1 {
     display: block;
     color: black;
     font-weight: bold;
+    font-size: 12px;
+    font-style: italic;
 }
 
-#picture-btn {
-    height: 60px;
-    width: 120px;
-    font-size: 15px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    background-color: #00E6F4;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 20px;
+.form {
+    margin-top: 40px;
 }
+
 
 .wrapper {
     position: relative;
 }
 
-#submit-btn {
-    height: 60px;
-    width: 120px;
-    font-size: 15px;
-    border-radius: 5px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #00E6F4;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border: none;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 #email {
-    border: 2px solid black;
+    border: none;
     height: 40px;
-    width: 200px;
+    width: 300px;
     font-size: 15px;
     font-weight: bold;
-    padding-left: 5px;
     background-color: white;
     color: black;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-top: 5px;
 }
 
 label {
-    font-size: 18px;
+    font-size: 16px;
+    text-align: left;
 }
 
 #hidden-warning, .exclamation, #duplicate-image-warning {
@@ -136,6 +117,49 @@ label {
     font-size: 15px;
 }
 
+.buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20%;
+    margin-top: 15px;
+}
+
+#picture-btn {
+    height: 60px;
+    width: 120px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #00E6F4;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#picture-btn:hover {
+    transition: 0.2s ease-in;
+    background-color: #00CCCC;
+}
+
+#submit-btn {
+    height: 60px;
+    width: 120px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #00E6F4;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#submit-btn:hover {
+    transition: 0.2s ease-in;
+    background-color: #00CCCC;
+}
+
 .image-and-email-flex {
     /* display: flex;
     flex-wrap: wrap; */
@@ -147,15 +171,16 @@ label {
     font-weight: bold;
     padding: 10px;
     border: 2px solid black;
+    text-align: center;
 }
 
 #image-and-email {
     margin-bottom: 10px;
     width: 100%;
-    border: 2px black solid;
     background-color: #C7FB86;
     border-radius: 5px;
     padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #array-image {
@@ -187,6 +212,12 @@ label {
     .image-handler-container {
         width: 100%;
         margin-right: 0;
+        padding: 10px;
+        text-align: center;
+    }
+    .buttons {
+        justify-content: center;
+        gap: 8%;
     }
 }   
 
@@ -199,25 +230,36 @@ label {
     }
     .correct {
         position: absolute;
-        left: 70%;
+        left: 92%;
         top: 13px;
+    }
+    .content-container {
+        margin-right: 25px;
+        margin-left: 25px;
     }
 }
 
 @media (min-width: 1200px) {
     #image-and-email {
-        width: 47.5% !important;
+        width: 100% !important;
     }
     .image-and-email-flex {
-        display: flex;
-        flex-wrap: wrap;
         gap: 5%;
+    }
+    .content-container {
+        margin-right: 200px;
+        margin-left: 200px;
     }
 }
 
 @media (min-width: 1500px) {
     #image-and-email {
-        width: 30% !important;
+        width: 47% !important;
+    }
+    .image-and-email-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
     }
 }
 

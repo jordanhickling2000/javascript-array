@@ -6,6 +6,7 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <link rel="stylesheet" href="css/style.css">
             <title>Array Reflection</title>
+            <link rel="icon" type="image/png" href="favicons/favicon.ico">
         </head>
     <body>
         <div class="content-container">
@@ -20,9 +21,8 @@
 
                         </div> <!-- This is an empty div tag because using the append child within JavaScript allows you to create an image through the DOM I was using an img tag however this didnt work and I tried the DOM technique.
                                 if theres any issues in the future then I will revist this. However without this append tag the array was being displayed but the image was not changing.-->
-                            <p class="photographer">Photographer: </p>    
+                            <figcaption class="photographer">Photographer: </figcaption>    
                         <div class="new-image-button">
-                            <button id="picture-btn">New Image</button>
                         </div>
                         <div class="form">
                             <form>
@@ -33,7 +33,8 @@
                                 </div>
                                 <p id="hidden-warning"><i class="exclamation fa-solid fa-circle-exclamation"></i>Please put in a valid email!</p>
                                 <p id="duplicate-image-warning"><i class="exclamation fa-solid fa-circle-exclamation"></i>Cannot have a duplicate image!</p>
-                                <div> 
+                                <div class="buttons"> 
+                                    <button id="picture-btn" type="button" value="button">New Image</button>
                                     <button id="submit-btn" type="submit" value="register" onclick="pushData()">Submit</button>
                                 </div>
                             </form>

@@ -70,24 +70,6 @@ form.addEventListener('submit', (e) => {
     document.getElementById('hidden-correct').style.display="inline";
     document.getElementById('email').style.paddingRight = "30px";
     document.getElementById('empty-text').style.display="none";
-    // document.getElementById('image-and-email').style.display="inline"; - Works but doesnt do over 1
-  //   img.src = ''
-  // photographer.innerHTML = 'Photographer: '; // Resets the photographer div everytime a click is heard. Inserting the starting text "Photographer"
-  
-  // let newLink = new Promise((resolve, reject) => {
-  //   fetch(url)
-  //       .then(response => response.headers.get('picsum-id'))
-  //       .then(info => 'https://picsum.photos/id/' + info + '/info' )
-  //       .then(resolve => {
-  //           fetch(resolve)
-  //           .then(response => response.json()) // Up to this section everything is the same as the first fetch as the same URL and info is being used. The next line becomes different to get the data array.
-  //           .then( data => {
-  //             // console.log(data); //This displays the data in an array showing that the data is working this then needs to be added to the URL.
-  //             img.src = 'https://picsum.photos/id/' + data.id + '/300/300'
-  //             photographer.insertAdjacentHTML('beforeend', data.author) // This remains the same due to the photograph class wanting to grab the different name everytime syncing up with the innerHTML reset.
-    //   })
-    // })
-  // });
   } else {
     document.getElementById('email').style.borderColor="#981616";
     document.getElementById('hidden-warning').style.display="block";
@@ -107,13 +89,13 @@ function pushData() {
     for (var i = 0; i < emailArr.length; i++) {
       if(emailArr[i][emailArr[i].length -1][0] === img.src){ // checks the image on the emails stops duplication  
         duplicationWarning.style.display='inline';
-        console.log('found');
+        console.log(emailArr[i][emailArr[i].length -1][0]);
         break;
       } else if (email.value === emailArr[i][0]) { // pushes the img.src into an existing email
         emailArr[i].push([img.src]);
         container.children[i].insertAdjacentHTML('beforeend',
         `<img id="array-image" src="` + emailArr[i][emailArr[i].length -1] + `">`);
-        console.log(emailArr[i][emailArr[i].length -1])
+        console.log("Hello")
         break;
       } else if (email.value !== emailArr[i][0] && i === emailArr.length - 1) { // pushes the img.src into an existing email
         emailArr.push([email.value, img.src]);
@@ -125,13 +107,13 @@ function pushData() {
         </div>`);
         console.log(emailArr[i+1][1])
         break;
-      }  else if (emailArr[i+1][1] === img.src) { // stops the new emails from duplicating first item.
+      } else if (emailArr[i+1][1] === img.src) { // stops the new emails from duplicating first item.
         duplicationWarning.style.display='inline';
         console.log('found');
         break;
       } 
-    }
-    if(!Array.isArray(emailArr) || !emailArr.length) {
+    } 
+    if (!Array.isArray(emailArr) || !emailArr.length) {
       emailArr.push([email.value, img.src]);
       container.children[0].insertAdjacentHTML('beforeend', 
       `<p id="array-p">` + emailArr[0][0] + `</p>
@@ -139,9 +121,10 @@ function pushData() {
       container.insertAdjacentHTML('beforeend', 
       `<div id="image-and-email">
       </div>`);
-      console.log(emailArr[0][1])  
+      console.log(emailArr[0][0]);
+      console.log(emailArr[0][1]);
     } 
-  }
+  } 
 }
 
 // (emailArr[i][0+1])
